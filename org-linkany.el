@@ -69,6 +69,19 @@
 ;; Clear cache.
 ;; 
 ;;  *** END auto-documentation
+;; [EVAL] (autodoc-document-lisp-buffer :type 'function :prefix "org-linkany/" :docstring t)
+;; `org-linkany/get-hatena-bookmark-candidate-url'
+;; Return a URL from the CAND of Hatena::Bookmark.
+;; `org-linkany/get-candidate-link-value'
+;; Return a URL from the CAND of the link of org-mode buffer.
+;; `org-linkany/get-candidate-mail-part'
+;; Return a mail address from the CAND of the link of org-mode buffer.
+;; `org-linkany/get-bbdb-candidate-name'
+;; Return a name from the CAND of BBDB record.
+;; `org-linkany/get-bbdb-candidate-mail'
+;; Return a mail address from the CAND of BBDB record.
+;; 
+;;  *** END auto-documentation
 ;; [Note] Functions and variables other than listed above, Those specifications may be changed without notice.
 
 ;;; Tested On:
@@ -243,6 +256,7 @@ This function is called when you do persistent-action that is bound to C-z."
 ;; Fix To Return URL
 
 (defun org-linkany/get-hatena-bookmark-candidate-url (cand)
+  "Return a URL from the CAND of Hatena::Bookmark."
   (if (not (string-match "\\[href:\\(.+\\)\\]$" cand))
       (org-linkany--show-message "Not found href in %s" cand)
     (match-string-no-properties 1 cand)))
@@ -252,6 +266,7 @@ This function is called when you do persistent-action that is bound to C-z."
 ;; Get Link From Org Buffer
 
 (defun org-linkany/get-candidate-link-value (cand)
+  "Return a URL from the CAND of the link of org-mode buffer."
   (replace-regexp-in-string " \\[.+\\]\\'" "" cand))
 
 (defvar org-linkany/source-link-in-org-buffer nil)
@@ -430,6 +445,7 @@ This function is called when you do persistent-action that is bound to C-z."
 ;; Complete BBDB
 
 (defun org-linkany/get-candidate-mail-part (cand)
+  "Return a mail address from the CAND of the link of org-mode buffer."
   (replace-regexp-in-string "\\`mailto:" "" (org-linkany/get-candidate-link-value cand)))
 
 (defvar org-linkany/source-mail-in-org-buffer nil)
@@ -457,9 +473,11 @@ This function is called when you do persistent-action that is bound to C-z."
     (match-string-no-properties idx cand)))
 
 (defun org-linkany/get-bbdb-candidate-name (cand)
+  "Return a name from the CAND of BBDB record."
   (org-linkany--get-bbdb-candidate-attribute cand 1))
 
 (defun org-linkany/get-bbdb-candidate-mail (cand)
+  "Return a mail address from the CAND of BBDB record."
   (let ((mails (split-string (org-linkany--get-bbdb-candidate-attribute cand 2) " +")))
     (if (> (length mails) 1)
         (completing-read "Select Address: " mails nil t)
