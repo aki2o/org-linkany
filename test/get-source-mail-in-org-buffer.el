@@ -1,0 +1,21 @@
+(require 'org-linkany)
+(require 'el-expectations)
+
+(expectations
+  (desc "get-source-mail-in-org-buffer get and cache")
+  (expect '((action . org-linkany/get-candidate-mail-part)
+            (name . "Link in Org Buffer")
+            (candidates . org-linkany--get-links-in-org-buffer)
+            (candidate-number-limit . 99))
+    (let ((org-linkany/source-mail-in-org-buffer nil))
+      (and (eq (org-linkany--get-source-mail-in-org-buffer)
+               org-linkany/source-mail-in-org-buffer)
+           org-linkany/source-mail-in-org-buffer)))
+  (desc "get-source-mail-in-org-buffer use cache")
+  (expect '((name . "hoge"))
+    (let ((org-linkany/source-mail-in-org-buffer '((name . "hoge"))))
+      (and (eq (org-linkany--get-source-mail-in-org-buffer)
+               org-linkany/source-mail-in-org-buffer)
+           org-linkany/source-mail-in-org-buffer)))
+  )
+
