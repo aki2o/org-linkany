@@ -33,11 +33,11 @@ Also, the following information is used to complete.
 
 ### If use package.el
 
-2014/03/03 Now application
+2014/03/04 It's available by using melpa.
 
 ### If use el-get.el
 
-2014/03/03 Now application
+2014/03/04 It's available. But, master branch only.
 
 ### If use auto-install.el
 
