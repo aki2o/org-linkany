@@ -12,7 +12,7 @@ This is a extension of Emacs that insert link using anything.el/helm.el on org-m
 
 ### Select candidate with browsing
 
-You can select URL with browsing and checking that by pushing the \`persistent-action\` key
+You can select URL with browsing and checking that by pushing the `persistent-action` key
 which is bound to "C-z" in default.  
 The persistent-action is available in mini-buffer too.  
 
@@ -20,14 +20,14 @@ The persistent-action is available in mini-buffer too.
 
 At present, The following formats of link are completed by anything.el/helm.el.  
 -   http/https/ftp &#x2026; from the sources of the bookmark of firefox/w3m/hatena.
--   file &#x2026; from the source for \`find-file\`.
+-   file &#x2026; from the source for `find-file`.
 -   mailto/bbdb &#x2026; from BBDB record.
 -   head &#x2026; from the heading in current buffer.
-    
-    Also, the following information is used to complete.  
-    
-    -   Link in org-mode buffers
-    -   The part of maybe URL in the other buffers
+
+Also, the following information is used to complete.  
+
+-   Link in org-mode buffers
+-   The part of maybe URL in the other buffers
 
 # Install
 
@@ -71,12 +71,12 @@ Download org-linkany.el and put it on your load-path.
 
 This customize variable is used to complete the URL format of link.  
 In default, this item has the sources about the bookmark of firefox and w3m and hatena.  
-But, \`anything\`/\`helm\` may be errored by them.  
+But, `anything=/=helm` may be errored by them.  
 If it's happened, customize this value to suit for you.  
 
 ### org-linkany/browse-function
 
-For browsing URL, use \`browse-url-firefox\` in default.  
+For browsing URL, use `browse-url-firefox` in default.  
 But, this function may be errored because that depends on OS and Emacs version.  
 If it's happened, customize this value to suit for you.  
 
