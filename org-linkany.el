@@ -1,4 +1,4 @@
-;;; org-linkany.el --- insert link using anything.el/helm.el on org-mode.
+;;; org-linkany.el --- Insert link using anything.el/helm.el on org-mode
 
 ;; Copyright (C) 2014  Hiroaki Otsu
 
