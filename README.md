@@ -71,7 +71,7 @@ Download org-linkany.el and put it on your load-path.
 
 This customize variable is used to complete the URL format of link.  
 In default, this item has the sources about the bookmark of firefox and w3m and hatena.  
-But, `anything=/=helm` may be errored by them.  
+But, `anything` / `helm` may be errored by them.  
 If it's happened, customize this value to suit for you.  
 
 ### org-linkany/browse-function
