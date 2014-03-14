@@ -5,7 +5,7 @@
 ;; Author: Hiroaki Otsu <ootsuhiroaki@gmail.com>
 ;; Keywords: org, completion
 ;; URL: https://github.com/aki2o/org-linkany
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; Package-Requires: ((log4e "0.2.0") (yaxception "0.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -604,4 +604,4 @@ This function is called when you do persistent-action that is bound to C-z."
 
 
 (provide 'org-linkany)
-;;; org-ac.el ends here
+;;; org-linkany.el ends here
