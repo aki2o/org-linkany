@@ -584,7 +584,9 @@ This function is called when you do persistent-action that is bound to C-z."
                           (yaxception:get-stack-trace-string e)))))
 
 (defadvice org-insert-link (around org-linkany/add-head activate)
-  (let ((org-link-types org-link-types))
+  (let ((org-link-types (if (fboundp 'org-link-types)
+                            (org-link-types)
+                          org-link-types)))
     (pushnew "head" org-link-types :test 'equal)
     ad-do-it))
 
